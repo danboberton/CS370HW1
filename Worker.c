@@ -7,6 +7,7 @@ float get_running_ratio(){
     int maxDivisibleElements = 0;
     int maxCountIteration = 0;
     int amountOfArrays = 0;
+    int sizeOfCurrentArray = 0;
     int* heapArray = NULL;
     int devisor = 0;
     int divisabilityCount = 0;
@@ -14,28 +15,31 @@ float get_running_ratio(){
 
     amountOfArrays = getRandomInRange(50, 100);
 
+    // 2
     printf("[Worker]: Number of iterations is: %d\n", amountOfArrays);
 
     for (int i = 0; i < amountOfArrays; i++){
 
-        heapArray = allocateArray(amountOfArrays);
-        populateArray(heapArray, amountOfArrays);
+        // 3
+        sizeOfCurrentArray = getRandomInRange(100, 150);
+        heapArray = allocateArray(sizeOfCurrentArray);
+
+        populateArray(heapArray, sizeOfCurrentArray);
 
         devisor = getRandomInRange(5, 15);
 
-        divisabilityCount = get_divisibility_count(heapArray, amountOfArrays, devisor);
+        divisabilityCount = get_divisibility_count(heapArray, sizeOfCurrentArray, devisor);
 
         // 6
-        runningRatioSum += ((float)divisabilityCount / (float)amountOfArrays);
+        runningRatioSum += ((float)divisabilityCount / (float)(sizeOfCurrentArray - divisabilityCount));
 
         // 7
         if (divisabilityCount > maxDivisibleElements){
             maxDivisibleElements = divisabilityCount;
-            maxCountIteration = i;
+            maxCountIteration = (i + 1);
         }
 
         free(heapArray);
-
     }
     
     // 8
@@ -43,27 +47,26 @@ float get_running_ratio(){
 
     //9
     return (runningRatioSum / amountOfArrays);
-
 }
 
 int getRandomInRange(int lowerBoundInclusive, int upperBoundExclusive){
 
-    return (rand() % (upperBoundExclusive - 1) + lowerBoundInclusive);
-    
+    return (rand() % (upperBoundExclusive - lowerBoundInclusive) + lowerBoundInclusive);
 }
 
 int* allocateArray(int sizeOfArray){
 
     int* pointersArray = (int*)malloc(sizeof(int) * sizeOfArray);
-
     return pointersArray;
-
 }
 
 void populateArray(int* array, int sizeOfArray){
 
+    int rando = 0;
+
     for (int i = 0; i < sizeOfArray; i++){
-        array[i] = getRandomInRange(1, 100);
+        rando = getRandomInRange(1, 100);
+        array[i] = rando;
     }
 }
 

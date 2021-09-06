@@ -1,3 +1,5 @@
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "Worker.h"
@@ -12,7 +14,7 @@ int validInput(int argc, char** argv) {
     if (atoi(argv[1]) < 0){
         return 1;
     }
-    
+
     return 0;
 }
 
