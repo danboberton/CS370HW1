@@ -1,7 +1,13 @@
-#include "Worker.h"
-#include <stdio.h>
-#include <stdlib.h>
+/*
+Worker implementation file
+Allocates memory in the heap, populates random arrays
+Dan Butcher 9/6/21
+*/
 
+#include "Worker.h"
+
+// Returns the ratio of he number of elements fully divisible
+// by the divisor to the number of elements not fully divisible by the element.
 float get_running_ratio(){
 
     int maxDivisibleElements = 0;
@@ -24,10 +30,11 @@ float get_running_ratio(){
         sizeOfCurrentArray = getRandomInRange(100, 150);
         heapArray = allocateArray(sizeOfCurrentArray);
 
+        // 4
         populateArray(heapArray, sizeOfCurrentArray);
 
+        // 5
         devisor = getRandomInRange(5, 15);
-
         divisabilityCount = get_divisibility_count(heapArray, sizeOfCurrentArray, devisor);
 
         // 6
@@ -49,27 +56,27 @@ float get_running_ratio(){
     return (runningRatioSum / amountOfArrays);
 }
 
+// Returns random number in a certain range
 int getRandomInRange(int lowerBoundInclusive, int upperBoundExclusive){
-
     return (rand() % (upperBoundExclusive - lowerBoundInclusive) + lowerBoundInclusive);
 }
 
+// Returns pointer to heap location block of a certain size
 int* allocateArray(int sizeOfArray){
 
     int* pointersArray = (int*)malloc(sizeof(int) * sizeOfArray);
     return pointersArray;
 }
 
+// Populates an array with random numbers
 void populateArray(int* array, int sizeOfArray){
 
-    int rando = 0;
-
     for (int i = 0; i < sizeOfArray; i++){
-        rando = getRandomInRange(1, 100);
-        array[i] = rando;
+        array[i] = getRandomInRange(1, 100);
     }
 }
 
+// Counts how many numbers in an int array are perfectly divisable by a number
 int get_divisibility_count(int* array, int arraySize, int randomDividend){
 
     int result = 0;

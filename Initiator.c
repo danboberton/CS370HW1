@@ -1,11 +1,13 @@
-
+/*
+Initiator implementation
+Validates input and uses functions in the worker.c file
+Dan Butcher 9/6/21
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "Worker.h"
 
-
-// TODO: Implement
 int validInput(int argc, char** argv) {
     if (argc < 2){
         return 1;
@@ -25,6 +27,7 @@ void setSeed(int seed){
 
 }
 
+// Entry point
 int main(int argc, char** argv){
 
     float runningRatio = 0;
@@ -32,7 +35,7 @@ int main(int argc, char** argv){
 
     // input validation
     if (validInput(argc, argv)){
-        printf("[Initiator]: Invalid Input");
+        printf("[Initiator]: Invalid Input\nExit");
         return 1;
     }
 
@@ -44,4 +47,6 @@ int main(int argc, char** argv){
     runningRatio = get_running_ratio();
 
     printf("[Initiator]: Average ratio is: %f\n", runningRatio);
+
+    return 0;
 }

@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Sep  6 12:23:56 2021
+# Make data base, printed on Mon Sep  6 15:02:19 2021
 
 # Variables
 
@@ -203,7 +203,7 @@ USER = db
 # environment
 SNAP_REVISION = 73
 # makefile
-.DEFAULT_GOAL := HW1
+.DEFAULT_GOAL := build
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
@@ -287,30 +287,23 @@ STARSHIP_SHELL = zsh
 
 # Directories
 
-# . (device 66305, inode 12189701): 12 files, no impossibilities.
+# . (device 66305, inode 12189701): 11 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
- 
 
 # Files
 
 # Not a target:
 all:
+ 
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
-
-HW1: Initiator.c Worker.c
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 32):
-	gcc -o HW1 Initiator.c Worker.c -I.
 
 # Not a target:
 Initiator.c:
@@ -321,9 +314,16 @@ Initiator.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-09-06 11:29:11.181567202
+#  Last modified 2021-09-06 15:02:13.775981453
 #  File has been updated.
 #  Successfully updated.
+
+build: Initiator.c Worker.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	gcc Initiator.c Worker.c -o DButcherHW1 -I.
 
 # Not a target:
 .DEFAULT:
@@ -337,20 +337,27 @@ Worker.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 7):
+	rm -f DButcherHW1
+
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/19=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/20=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 17 / storage = 138 B / avg = 8 B
-# current buf: size = 8162 B / used = 138 B / count = 17 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 155 B / avg = 8 B
+# current buf: size = 8162 B / used = 155 B / count = 18 / avg = 8 B
 
-# strcache performance: lookups = 25 / hit rate = 32%
+# strcache performance: lookups = 26 / hit rate = 30%
 # hash-table stats:
-# Load=17/8192=0%, Rehash=0, Collisions=1/25=4%
-# Finished Make data base on Mon Sep  6 12:23:56 2021
+# Load=18/8192=0%, Rehash=0, Collisions=1/26=4%
+# Finished Make data base on Mon Sep  6 15:02:19 2021
 
  
