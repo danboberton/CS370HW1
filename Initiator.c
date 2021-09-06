@@ -1,10 +1,17 @@
-// Initiator.c
+#include "Worker.h"
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv){
 
+    // input validation
+    if (!validInput()){
+        
+        return 
+    }
 
-    // validate input
-    int seed = 
-    srand(seed);
-    printf("[Initiator]: With seed: %d\n", seed);   
+    // setting seed whose value is passed as an arg
+
+}
+
+void printFromInitiator(char** string){
+    
 }
