@@ -11,3 +11,8 @@ Hint: you are computing the total number of divisible items over the total
 number of iterations
 */
 
+float get_running_ratio();
+int getRandomInRange(int lowerBoundInclusive, int upperBoundExclusive);
+int* allocateArray(int sizeOfArray);
+void populateArray(int* array, int sizeOfArray);
+int get_divisibility_count(int* array, int arraySize, int randomDividend);

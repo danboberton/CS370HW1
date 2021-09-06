@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/db/School/CS370-OS/CS370HW1",
+            "binaryPath": "/home/db/School/CS370-OS/CS370HW1/HW1",
+            "binaryArgs": ["5"]
+        }
+    ]
+}
